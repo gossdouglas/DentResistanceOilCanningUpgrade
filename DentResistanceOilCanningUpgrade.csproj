@@ -98,7 +98,14 @@
     <Content Include="Api\DRFormula\UpgradeHelpers.DB.Essentials\UpgradeHelpers.DB.Essentials.csproj" />
     <Content Include="Api\DRFormula\UpgradeHelpers.DB.RDO\UpgradeHelpers.DB.RDO.csproj" />
     <Content Include="Api\DRFormula\UpgradeHelpers.Utils\UpgradeHelpers.Utils.csproj" />
+    <Content Include="app\Application.js" />
+    <Content Include="app\model\Base.js" />
+    <Content Include="app\model\Personnel.js" />
+    <Content Include="app\store\Personnel.js" />
+    <Content Include="app\view\main\MainController.js" />
+    <Content Include="app\view\main\MainModel.js" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +206,7 @@
     <Content Include="Api\DRFormula\UpgradeHelpers.Utils\obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Api\DRFormula\UpgradeHelpers.Utils\obj\x86\Debug\UpgradeHelpers.Utils.csproj.AssemblyReference.cache" />
     <None Include="Api\DRFormula\UpgradeHelpers.Utils\packages.config" />
+    <Content Include="app\Application.scss" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
