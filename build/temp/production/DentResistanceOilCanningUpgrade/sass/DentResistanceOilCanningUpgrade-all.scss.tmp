@@ -1,16 +1,10 @@
 $app-name:  dynamic( 'DentResistanceOilCanningUpgrade' );
-$image-search-path: 'C:/Users/gosstony/source/repos/DentResistanceOilCanningUpgrade/build/production/DentResistanceOilCanningUpgrade/modern/resources';
+$image-search-path: 'C:/Users/gosstony/source/repos/ChartsTesting/build/production/DentResistanceOilCanningUpgrade/modern/resources';
 $theme-name:  dynamic( 'theme-material' );
 $include-dentresistanceoilcanningupgrade-application: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-model-base: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-model-personnel: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-store-ocloaddeflectionstore: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-store-personnel: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-store-spline: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-view-charts-line-ocloaddeflection: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-view-charts-line-ocloaddeflectioncontroller: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-view-charts-line-spline: dynamic(true);;
-$include-dentresistanceoilcanningupgrade-view-charts-line-splinecontroller: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-view-main-list: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-view-main-main: dynamic(true);;
 $include-dentresistanceoilcanningupgrade-view-main-maincontroller: dynamic(true);;

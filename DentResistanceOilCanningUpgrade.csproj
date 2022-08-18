@@ -218,6 +218,7 @@
     <Folder Include="Api\DRFormula\UpgradeHelpers.Utils\obj\x86\Debug\TempPE\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
