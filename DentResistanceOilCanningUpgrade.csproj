@@ -98,10 +98,16 @@
     <Content Include="Api\DRFormula\UpgradeHelpers.DB.Essentials\UpgradeHelpers.DB.Essentials.csproj" />
     <Content Include="Api\DRFormula\UpgradeHelpers.DB.RDO\UpgradeHelpers.DB.RDO.csproj" />
     <Content Include="Api\DRFormula\UpgradeHelpers.Utils\UpgradeHelpers.Utils.csproj" />
+    <Content Include="app\model\GradeModel.js" />
+    <Content Include="app\store\GradeStoreModel1.js" />
+    <Content Include="app\store\GradeStoreModel2.js" />
     <Content Include="app\view\main\DentResistanceOverview.js" />
     <Content Include="app\view\main\DrM1Form.js" />
     <Content Include="app\view\main\DrM1FormCalcResults.js" />
     <Content Include="app\view\main\DrM1FormController.js" />
+    <Content Include="app\view\main\DrM2Form.js" />
+    <Content Include="app\view\main\DrM2FormCalcResults.js" />
+    <Content Include="app\view\main\DrM2FormController.js" />
     <Content Include="app\view\main\PageFooter.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

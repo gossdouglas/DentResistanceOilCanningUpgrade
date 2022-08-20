@@ -22,11 +22,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         'DentResistanceOilCanningUpgrade.view.main.DrM1Form',
         'DentResistanceOilCanningUpgrade.view.main.DrM1FormCalcResults',
         'DentResistanceOilCanningUpgrade.view.main.DrM1FormController',
-        ////dent resistance model 2
-        //'DentResistanceOilCanning.view.main.DrM2Form',
-        //'DentResistanceOilCanning.store.GradeStoreModel2',
-        //'DentResistanceOilCanning.view.main.DrM2FormCalcResults',
-        //'DentResistanceOilCanning.view.main.DrM2FormController',
+        //dent resistance model 2
+        'DentResistanceOilCanningUpgrade.view.main.DrM2Form',
+        'DentResistanceOilCanningUpgrade.store.GradeStoreModel2',
+        'DentResistanceOilCanningUpgrade.view.main.DrM2FormCalcResults',
+        'DentResistanceOilCanningUpgrade.view.main.DrM2FormController',
         ////oil canning calculator
         //'DentResistanceOilCanning.view.main.OilCanningOverview',
         //'DentResistanceOilCanning.view.main.OilCanningForm',
@@ -109,7 +109,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
                 }
             },
             items: [{
-                //xtype: 'dent-resistance-overview'
+                xtype: 'dent-resistance-overview'
             }],
         },
         {
