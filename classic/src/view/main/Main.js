@@ -27,18 +27,18 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         'DentResistanceOilCanningUpgrade.store.GradeStoreModel2',
         'DentResistanceOilCanningUpgrade.view.main.DrM2FormCalcResults',
         'DentResistanceOilCanningUpgrade.view.main.DrM2FormController',
-        ////oil canning calculator
-        //'DentResistanceOilCanning.view.main.OilCanningOverview',
-        //'DentResistanceOilCanning.view.main.OilCanningForm',
-        //'DentResistanceOilCanning.view.main.OcBulkInputForm',
-        //'DentResistanceOilCanning.view.main.OilCanningFormController',
-        //'DentResistanceOilCanning.view.main.OcBulkInputFormController',
-        ////bulk oil canning calculator
-        //'DentResistanceOilCanning.grid.OcBulkCalculationGrid',
-        //'DentResistanceOilCanning.grid.OcBulkErrorGrid',
-        //'DentResistanceOilCanning.view.main.OcBulkCalculationController',
-        //'DentResistanceOilCanning.store.OcBulkCalculationStore',
-        //'DentResistanceOilCanning.store.OcBulkErrorStore',
+        //oil canning calculator
+        'DentResistanceOilCanningUpgrade.view.main.OilCanningOverview',
+        'DentResistanceOilCanningUpgrade.view.main.OilCanningForm',
+        'DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm',
+        'DentResistanceOilCanningUpgrade.view.main.OilCanningFormController',
+        'DentResistanceOilCanningUpgrade.view.main.OcBulkInputFormController',
+        //bulk oil canning calculator
+        'DentResistanceOilCanningUpgrade.grid.OcBulkCalculationGrid',
+        'DentResistanceOilCanningUpgrade.grid.OcBulkErrorGrid',
+        'DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationController',
+        'DentResistanceOilCanningUpgrade.store.OcBulkCalculationStore',
+        'DentResistanceOilCanningUpgrade.store.OcBulkErrorStore',
 
         //'DentResistanceOilCanning.view.charts.line.OcLoadDeflection',
         //'DentResistanceOilCanning.store.OcLoadDeflectionStore',
@@ -124,24 +124,24 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
                 }
             },
             items: [{
-                //xtype: 'oil-canning-overview'
+                xtype: 'oil-canning-overview'
             }],
         },
-        {
-            title: 'Load Deflection',
-            iconCls: 'fa-user',
-            scrollable: true,
+        //{
+        //    title: 'Load Deflection',
+        //    iconCls: 'fa-user',
+        //    scrollable: true,
 
-            listeners: {
-                show: function () {
-                    //Ext.MessageBox.alert('Tab two', 'Tab two was clicked.');
-                    //resetTab2();
-                }
-            },
-            items: [{
-                xtype: 'oc-load-deflection'
-            }],
-        },
+        //    listeners: {
+        //        show: function () {
+        //            //Ext.MessageBox.alert('Tab two', 'Tab two was clicked.');
+        //            //resetTab2();
+        //        }
+        //    },
+        //    items: [{
+        //        xtype: 'oc-load-deflection'
+        //    }],
+        //},
     ]
 });
 
