@@ -17,11 +17,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         'DentResistanceOilCanningUpgrade.view.main.PageFooter',
 
         //dent resistance model 1
-        'DentResistanceOilCanning.view.main.DentResistanceOverview',
-        'DentResistanceOilCanning.store.GradeStoreModel1',
-        'DentResistanceOilCanning.view.main.DrM1Form',
-        'DentResistanceOilCanning.view.main.DrM1FormCalcResults',
-        'DentResistanceOilCanning.view.main.DrM1FormController',
+        'DentResistanceOilCanningUpgrade.view.main.DentResistanceOverview',
+        'DentResistanceOilCanningUpgrade.store.GradeStoreModel1',
+        'DentResistanceOilCanningUpgrade.view.main.DrM1Form',
+        'DentResistanceOilCanningUpgrade.view.main.DrM1FormCalcResults',
+        'DentResistanceOilCanningUpgrade.view.main.DrM1FormController',
         ////dent resistance model 2
         //'DentResistanceOilCanning.view.main.DrM2Form',
         //'DentResistanceOilCanning.store.GradeStoreModel2',
