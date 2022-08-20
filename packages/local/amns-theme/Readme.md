@@ -1,0 +1,2 @@
+# amns-theme - Read Me
+

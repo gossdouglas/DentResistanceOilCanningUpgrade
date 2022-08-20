@@ -1,2 +1,2 @@
 // @tag full-page
-// @require C:\Users\gosstony\source\repos\ChartsTesting\app.js
+// @require C:\Users\gosstony\source\repos\DentResistanceOilCanningUpgrade\app.js

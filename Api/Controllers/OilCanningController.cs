@@ -129,7 +129,43 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 numArray6[index2] = 0.05f * (float)checked(index2 - 1);
                 if (index2 % 20 == 1)
                     ++a;
-                numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
+                //numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
+
+                //numArray7[index2] = 
+                //    (double)numArray6[index2] > num17 ? 
+                //        (a >= 2.0 ? 
+                //            (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) 
+                //            : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) 
+                //    : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
+
+                if ((double)numArray6[index2] > num17)
+                {
+                    if (a >= 2.0)
+                    {
+                        numArray7[index2] = (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))])));
+                        if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
+                        {
+                            Debug.WriteLine("Found 90 in section 1 between " + numArray7[index2 -1] + " and " + numArray7[index2]);
+                        }
+                    }
+                    else
+                    {
+                        numArray7[index2] = (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]));
+                        if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
+                        {
+                            Debug.WriteLine("Found 90 in section 2 between " + numArray7[index2 - 1] + " and " + numArray7[index2]);
+                        }
+                    }
+                }
+                else
+                {
+                    numArray7[index2] = numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
+                    if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
+                    {
+                        Debug.WriteLine("Found 90 in section 3 between " + numArray7[index2 - 1] + " and " + numArray7[index2]);
+                    }
+                }
+
                 checked { ++num22; }
                 if ((double)numArray7[index2] < double.Parse("400.0"))
                     checked { ++index2; }
@@ -308,6 +344,7 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                     if (index2 % 20 == 1)
                         ++a;
                     numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
+                    //oilCanningReturn.Deflection90 = (double)90 > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)90 - a) * (numArray3[checked((int)Math.Round(a))] + ((double)90 - a) * (numArray4[checked((int)Math.Round(a))] + ((double)90 - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (90 + (double)numArray6[index2] * numArray4[1]))) : 90 * (float)(num20 + num21 * (double)90);
                     checked { ++num22; }
                     if ((double)numArray7[index2] < double.Parse("400.0"))
                         checked { ++index2; }
