@@ -38,11 +38,36 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningFormController',
                     //var model = Ext.create('TiSlots.model.TiSlot');
                     //var model = Ext.create('DentResistanceOilCanningUpgrade.model.CalculationDentReistanceModel');
                     var resp = Ext.decode(action.response.responseText);
-                    console.clear();
-                    console.log("calculation response: ");
-                    console.log(resp);
-                    console.log(resp.data.oilcanning.BH210);
-                    console.log(resp.data.oilcanning.DDQ);
+                    //console.clear();
+                    //console.log("calculation response: ");
+                    //console.log(resp);
+                    //console.log(resp.data.oilcanning.ocvar);
+                    //console.log(resp.data.oilcanning.BH210);
+                    //console.log(resp.data.oilcanning.DDQ);
+
+                    var tmpPeakLd = resp.data.oilcanning.peakld;
+                    //console.log("tmpPeakLd: " + tmpPeakLd.toFixed(1));
+
+                    if (resp.data.oilcanning.ocvar < 0) {
+
+                        //var tmpPeakLd = resp.data.oilcanning.peakld;
+                        //tmpPeakLd = tmpPeakLd.toFixed(1);
+
+                        Ext.getCmp('ChartOcCalculate').setCaptions(
+                            {
+                                //title: 'Oil Canning at ' + resp.data.oilcanning.peakld.toFixed(1) + 'N'
+                                title: 'Oil Canning at ' + tmpPeakLd.toFixed(1) + ' N'
+                            }
+                        );
+                    }
+                    else {
+                        Ext.getCmp('ChartOcCalculate').setCaptions(
+                            {
+                                //title: 'Oil Canning at ' + resp.data.oilcanning.peakld.toFixed(1) + 'N'
+                                title: 'No Oil Canning < 400 N'
+                            }
+                        );
+                    }
 
                     Ext.getCmp('DdqOcCalculate').setValue(resp.data.oilcanning.DDQ);
                     Ext.getCmp('Bh210OcCalculate').setValue(resp.data.oilcanning.BH210);

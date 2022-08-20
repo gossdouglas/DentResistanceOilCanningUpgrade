@@ -26,6 +26,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.charts.line.OcLoadDeflection', 
         [
             {
             xtype: 'cartesian',
+            id: 'ChartOcCalculate',
             reference: 'chart',
             width: '100%',
             height: 500,
@@ -33,9 +34,9 @@ Ext.define('DentResistanceOilCanningUpgrade.view.charts.line.OcLoadDeflection', 
                 type: 'oc-load-deflection-store'
             },
             insetPadding: '10 20 10 10',
-            //captions: {
-            //    title: 'Load Deflection'
-            //},
+            captions: {
+                title: '-'
+            },
             axes: [{
                 type: 'numeric',
                 position: 'left',
