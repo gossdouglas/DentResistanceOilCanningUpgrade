@@ -224,6 +224,39 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                             click: 'onClearResultsClick'
                                         }
                                     },
+                                    {
+                                        xtype: 'button',
+                                        text: "Import File",
+                                        margin: '20 10 0 0',
+                                        width: '10%',
+                                        listeners: {
+                                            //click: 'onClearResultsClick'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        id: 'ExportOcCalculate',
+                                        name: 'ExportOcCalculate',
+                                        text: "Export to Excel",
+                                        //disabled: true,
+                                        margin: '20 10 0 0',
+                                        width: '10%',
+                                        listeners: {
+                                            click: 'onExportOcClick'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'fieldcontainer',
+                                        defaultType: 'checkboxfield',
+                                        items: [
+                                            {
+                                                boxLabel: 'Export Detailed',
+                                                id: 'ExportDetailedOcCalculate',
+                                                //name: 'ExportDetailedOcCalculate',
+                                                //inputValue: '1',
+                                            },
+                                        ],
+                                    }
                                 ]
                         },
                     ]
@@ -231,6 +264,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
             //results panel
             {
                 xtype: 'panel',
+                layout: {
+                    type: 'hbox',
+                    pack: 'center',
+                    align: 'middle'
+                },
                 //id: 'DrM1FormResultsPanel',
                 title: 'Load Deflection Behavior -150 mm Flat Identer',
                 titleAlign: 'center',

@@ -102,6 +102,7 @@
     <Content Include="app\grid\OcBulkErrorGrid.js" />
     <Content Include="app\model\GradeModel.js" />
     <Content Include="app\model\VmOilCanningErrorModel.js" />
+    <Content Include="app\model\ChartModel.js" />
     <Content Include="app\model\VmOilCanningReturnModel.js" />
     <Content Include="app\store\GradeStoreModel1.js" />
     <Content Include="app\store\GradeStoreModel2.js" />

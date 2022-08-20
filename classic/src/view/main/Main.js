@@ -127,21 +127,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
                 xtype: 'oil-canning-overview'
             }],
         },
-        //{
-        //    title: 'Load Deflection',
-        //    iconCls: 'fa-user',
-        //    scrollable: true,
-
-        //    listeners: {
-        //        show: function () {
-        //            //Ext.MessageBox.alert('Tab two', 'Tab two was clicked.');
-        //            //resetTab2();
-        //        }
-        //    },
-        //    items: [{
-        //        xtype: 'oc-load-deflection'
-        //    }],
-        //},
     ]
 });
 
