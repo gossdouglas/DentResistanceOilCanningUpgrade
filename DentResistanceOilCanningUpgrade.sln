@@ -7,45 +7,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentResistanceOilCanningUpg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dent-Oil-Canning2", "..\DentResistanceOilCanning\Dent-Oil-Canning2\Dent-Oil-Canning2.csproj", "{5245F58A-2B13-4DE2-A35E-3BC77F00223E}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SenchaTesting", "..\SenchaTesting\", "{BB3CA8EC-838C-483B-9D73-E832A766F8CF}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OilCanning_BulkInput_Source_files", "..\..\..\..\..\Code\Dr-Oc Classic\Final_Handoff_files\OilCanning_BulkInput_Source_files\", "{B55AA661-4283-4258-8511-0963E051DC3E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_58042"
-		Debug.AspNetCompiler.PhysicalPath = "..\SenchaTesting\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58042\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64322"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Code\Dr-Oc Classic\Final_Handoff_files\OilCanning_BulkInput_Source_files\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64322\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_58042"
-		Release.AspNetCompiler.PhysicalPath = "..\SenchaTesting\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58042\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64322"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\Code\Dr-Oc Classic\Final_Handoff_files\OilCanning_BulkInput_Source_files\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64322\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "58042"
-		SlnRelativePath = "..\SenchaTesting\"
-	EndProjectSection
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ChartsTesting", "..\ChartsTesting\", "{10CFFABA-8735-49F8-BB31-CD06E5FE9181}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_64510"
-		Debug.AspNetCompiler.PhysicalPath = "..\ChartsTesting\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64510\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_64510"
-		Release.AspNetCompiler.PhysicalPath = "..\ChartsTesting\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64510\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "64510"
+		VWDPort = "64322"
+		SlnRelativePath = "..\..\..\..\..\Code\Dr-Oc Classic\Final_Handoff_files\OilCanning_BulkInput_Source_files\"
 	EndProjectSection
 EndProject
 Global
@@ -62,14 +42,10 @@ Global
 		{5245F58A-2B13-4DE2-A35E-3BC77F00223E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5245F58A-2B13-4DE2-A35E-3BC77F00223E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5245F58A-2B13-4DE2-A35E-3BC77F00223E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB3CA8EC-838C-483B-9D73-E832A766F8CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB3CA8EC-838C-483B-9D73-E832A766F8CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB3CA8EC-838C-483B-9D73-E832A766F8CF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB3CA8EC-838C-483B-9D73-E832A766F8CF}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{10CFFABA-8735-49F8-BB31-CD06E5FE9181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10CFFABA-8735-49F8-BB31-CD06E5FE9181}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10CFFABA-8735-49F8-BB31-CD06E5FE9181}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{10CFFABA-8735-49F8-BB31-CD06E5FE9181}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B55AA661-4283-4258-8511-0963E051DC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55AA661-4283-4258-8511-0963E051DC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55AA661-4283-4258-8511-0963E051DC3E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55AA661-4283-4258-8511-0963E051DC3E}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

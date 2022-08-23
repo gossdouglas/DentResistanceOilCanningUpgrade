@@ -462,10 +462,10 @@ function validateBulkOilCanningExcelRow(minValue, maxValue, evaluatedValue, eval
     }
 }
 
-$(document).ready(function () {
-
-});
-
+//download a template for bulk oil canning processing
+function DownloadOcBulkTemplate() {
+    location.href = '/Resources/OilCanningBulkInputTemplate.xlsx'
+}
 
 ///**
 // * This class is the main view for the application. It is specified in app.js as the

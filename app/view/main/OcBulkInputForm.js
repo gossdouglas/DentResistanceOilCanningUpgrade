@@ -77,6 +77,18 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
                                             }
                                         }
                                     },
+                                    {
+                                        xtype: 'button',
+                                        text: "Download Excel Template",
+                                        width: '15%',
+                                        //margin: top, right, bottom, left
+                                        margin: '0 1 0 1',
+                                        listeners: {
+                                            click: function (input, val, opts) {
+                                                DownloadOcBulkTemplate();
+                                            }
+                                        }
+                                    },
                                 ],
                         },                      
                     ]

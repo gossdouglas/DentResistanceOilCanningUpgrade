@@ -129,42 +129,7 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 numArray6[index2] = 0.05f * (float)checked(index2 - 1);
                 if (index2 % 20 == 1)
                     ++a;
-                //numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
-
-                //numArray7[index2] = 
-                //    (double)numArray6[index2] > num17 ? 
-                //        (a >= 2.0 ? 
-                //            (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) 
-                //            : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) 
-                //    : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
-
-                if ((double)numArray6[index2] > num17)
-                {
-                    if (a >= 2.0)
-                    {
-                        numArray7[index2] = (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))])));
-                        if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
-                        {
-                            Debug.WriteLine("Found 90 in section 1 between " + numArray7[index2 -1] + " and " + numArray7[index2]);
-                        }
-                    }
-                    else
-                    {
-                        numArray7[index2] = (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]));
-                        if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
-                        {
-                            Debug.WriteLine("Found 90 in section 2 between " + numArray7[index2 - 1] + " and " + numArray7[index2]);
-                        }
-                    }
-                }
-                else
-                {
-                    numArray7[index2] = numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
-                    if (numArray7[index2 - 1] < 90 && numArray7[index2] > 90)
-                    {
-                        Debug.WriteLine("Found 90 in section 3 between " + numArray7[index2 - 1] + " and " + numArray7[index2]);
-                    }
-                }
+                numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
 
                 checked { ++num22; }
                 if ((double)numArray7[index2] < double.Parse("400.0"))
@@ -214,7 +179,6 @@ namespace DentResistanceOilCanningUpgrade.Controllers
         public ReturnObject<List<VmBulkOilCanningReturn>> CalculateBulkOilCanning(List<OilCanning> model)
         {
             List<VmBulkOilCanningReturn> oilCanningReturnList = new List<VmBulkOilCanningReturn>();
-            //int excelRowId = 1;
 
             //for each posted oil canning calculation...
             foreach (OilCanning oc in model)
@@ -223,25 +187,6 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 VmBulkOilCanningReturn oilCanningReturn = new VmBulkOilCanningReturn();
                 //create a new list of chart objects
                 List<Chart> chartList = new List<Chart>();
-
-                //valid ranges for oil canning inputs
-                double fvrMin = 3000;
-                double fvrMax = 12000;
-
-                double svrMin = 3000;
-                double svrMax = 15000;
-
-                double gaugeiniMin = .55;
-                double gaugeiniMax = .85;
-
-                double spanMin = 150;
-                double spanMax = 525;
-
-                double emajMin = 0;
-                double emajMax = 2;
-
-                double eminMin = 0;
-                double eminMax = 2;
 
                 double ocvar = oc.ocvar;
                 double peakld = oc.peakld;
@@ -255,6 +200,11 @@ namespace DentResistanceOilCanningUpgrade.Controllers
 
                 double DDQ = oc.DDQ;
                 double BH210 = oc.BH210;
+
+                double loadMin = 0.0;
+                double loadMax = 0.0;
+                double DeflactionMin = 0.0;
+                double DeflactionMax = 0.0;
 
                 double[] numArray1 = new double[21];
                 double[] numArray2 = new double[11];
@@ -344,7 +294,6 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                     if (index2 % 20 == 1)
                         ++a;
                     numArray7[index2] = (double)numArray6[index2] > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray3[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * (numArray4[checked((int)Math.Round(a))] + ((double)numArray6[index2] - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (numArray3[1] + (double)numArray6[index2] * numArray4[1]))) : numArray6[index2] * (float)(num20 + num21 * (double)numArray6[index2]);
-                    //oilCanningReturn.Deflection90 = (double)90 > num17 ? (a >= 2.0 ? (float)(numArray2[checked((int)Math.Round(a))] + ((double)90 - a) * (numArray3[checked((int)Math.Round(a))] + ((double)90 - a) * (numArray4[checked((int)Math.Round(a))] + ((double)90 - a) * numArray5[checked((int)Math.Round(a))]))) : (float)(numArray2[1] + (double)numArray6[index2] * (90 + (double)numArray6[index2] * numArray4[1]))) : 90 * (float)(num20 + num21 * (double)90);
                     checked { ++num22; }
                     if ((double)numArray7[index2] < double.Parse("400.0"))
                         checked { ++index2; }
@@ -358,10 +307,25 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                     checked { ++num1; }
                     string str1 = numArray6[index3].ToString();
                     string str2 = Conversions.ToString(numArray7[index3]);
+
                     if ((double)numArray7[index3] > 0.0)
                         chartList.Add(new Chart(Conversions.ToDouble(str1), Conversions.ToDouble(str2)));
+
                     if ((double)numArray7[index3] < 400.0)
+                    {
+                        if (Conversions.ToDouble(str2) > 90.0 & loadMax == 0.0)
+                        {
+                            DeflactionMax = Conversions.ToDouble(str1);
+                            loadMax = Conversions.ToDouble(str2);
+                            DeflactionMin = (double)numArray6[checked(index3 - 1)];
+                            loadMin = (double)numArray7[checked(index3 - 1)];
+
+                            //calculate deflection at 90 newtons and 100 newtons
+                            oilCanningReturn.Deflection90 = Math.Round(DeflactionMin + (DeflactionMax - DeflactionMin) / (loadMax - loadMin) * (90.0 - loadMin), 2);
+                            oilCanningReturn.Deflection100 = Math.Round(DeflactionMin + (DeflactionMax - DeflactionMin) / (loadMax - loadMin) * (100.0 - loadMin), 2);
+                        }
                         checked { ++index3; }
+                    }
                     else
                         break;
                 }
@@ -375,35 +339,22 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 oc.BH210 = BH210;
                 oc.DDQ = DDQ;
 
-                //oilCanningReturn.excelRowId = excelRowId;
                 oilCanningReturn.excelRowId = oc.excelRowId;
                 oilCanningReturn.ocvar = ocvar;
                 oilCanningReturn.peakld = Math.Round(peakld, 1);
 
-                oilCanningReturn.fvr = IsOilCanningRangeValid(fvrMin, fvrMax, oc.fvr);
-                oilCanningReturn.svr = IsOilCanningRangeValid(svrMin, svrMax, oc.svr);
-                oilCanningReturn.gaugeini = IsOilCanningRangeValid(gaugeiniMin, gaugeiniMax, oc.gaugeini);
-                oilCanningReturn.span = IsOilCanningRangeValid(spanMin, spanMax, oc.span);
-                oilCanningReturn.emaj = IsOilCanningRangeValid(emajMin, emajMax, oc.emaj);
-                oilCanningReturn.emin = IsOilCanningRangeValid(eminMin, eminMax, oc.emin);
-
-                //oilCanningReturn.fvr = oc.fvr;
-                //oilCanningReturn.svr = oc.svr;
-                //oilCanningReturn.gaugeini = oc.gaugeini;
-                //oilCanningReturn.span = oc.span;
-                //oilCanningReturn.emaj = oc.emaj;
-                //oilCanningReturn.emin = oc.emin;
+                oilCanningReturn.fvr = oc.fvr;
+                oilCanningReturn.svr = oc.svr;
+                oilCanningReturn.gaugeini = oc.gaugeini;
+                oilCanningReturn.span = oc.span;
+                oilCanningReturn.emaj = oc.emaj;
+                oilCanningReturn.emin = oc.emin;
 
                 oilCanningReturn.BH210 = Math.Round(BH210, 1);
                 oilCanningReturn.DDQ = Math.Round(DDQ, 1);
-                //deflections are set to zero for now because I don't understand how they are calculated
-                oilCanningReturn.Deflection90 = 0.0;
-                oilCanningReturn.Deflection100 = 0.0;
 
                 //add oilCanningReturn to oilCanningReturnList
                 oilCanningReturnList.Add(oilCanningReturn);
-                //increment the excel row id by 1
-                //excelRowId++;
             }
 
             if (oilCanningReturnList != null)
@@ -415,18 +366,5 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 return new ReturnObject<List<VmBulkOilCanningReturn>>() { success = false, data = oilCanningReturnList, validated = true };
             }
         }
-
-        public double IsOilCanningRangeValid (double minValue, double maxValue, double evaluatedValue)
-        {
-            if (evaluatedValue >= minValue && evaluatedValue <= maxValue)
-            {
-                return evaluatedValue;
-            }
-            else
-            {
-                return double.NaN;
-            }
-        }
-
     }
 }

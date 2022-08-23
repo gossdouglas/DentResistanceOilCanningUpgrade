@@ -226,6 +226,8 @@
     <Content Include="Api\DRFormula\UpgradeHelpers.Utils\obj\x86\Debug\UpgradeHelpers.Utils.csproj.AssemblyReference.cache" />
     <None Include="Api\DRFormula\UpgradeHelpers.Utils\packages.config" />
     <None Include="packages.config" />
+    <Content Include="Resources\Readme.md" />
+    <Content Include="Resources\OilCanningBulkInputTemplate.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

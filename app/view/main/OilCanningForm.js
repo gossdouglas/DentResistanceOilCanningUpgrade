@@ -226,9 +226,22 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                     },
                                     {
                                         xtype: 'button',
+                                        text: "Download Excel Template",
+                                        width: '15%',
+                                        //margin: top, right, bottom, left
+                                        margin: '20 10 0 0',
+                                        listeners: {
+                                            click: function (input, val, opts) {
+                                                DownloadOcBulkTemplate();
+                                            }
+                                        }
+                                    },
+                                    {
+                                        xtype: 'button',
                                         text: "Import File",
                                         margin: '20 10 0 0',
                                         width: '10%',
+                                        disabled: true,
                                         listeners: {
                                             //click: 'onClearResultsClick'
                                         }
@@ -241,6 +254,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         //disabled: true,
                                         margin: '20 10 0 0',
                                         width: '10%',
+                                        disabled: true,
                                         listeners: {
                                             click: 'onExportOcClick'
                                         }
