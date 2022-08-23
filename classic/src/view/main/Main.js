@@ -467,6 +467,125 @@ function DownloadOcBulkTemplate() {
     location.href = '/Resources/OilCanningBulkInputTemplate.xlsx'
 }
 
+var chartList = [];
+
+function setChartList(chartListData) {
+
+    chartList = chartListData;
+    //console.log("chartList");
+    //console.log(chartList);
+}
+
+function getChartList() {
+
+    return chartList;
+}
+
+function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportDetailed) {
+//function OilCanningToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+    //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+
+    //console.log("oilCanningData");
+    //console.log(oilCanningData);
+
+    var CSV = '';
+    //Set Report title in first row or line
+
+    currentDateTime = new Date().toLocaleString();
+    CSV += 'Oil Canning Results,Ran On: ' + currentDateTime + '\r\n';
+    CSV += 'Front View Radius (mm),Side View Radius (mm),Thickness (mm),Free Span Between Bows (mm),Major Stretch (%),Minor Stretch (%)\r\n';
+    CSV += oilCanningData[0].fvr + ',' + oilCanningData[0].svr + ',' + oilCanningData[0].gaugeini + ',' + oilCanningData[0].span + ',' + oilCanningData[0].emaj + ',' + oilCanningData[0].emin + '\r\n';
+
+    //if a detailed report is requested, include the deflection and load data points
+    if (exportDetailed) {
+        var row = "";
+
+        //This loop will extract the label from 1st index of on array
+        for (var index in arrData[0]) {
+
+            //Now convert each value to string and comma-seprated
+            row += index + ',';
+        }
+
+        row = row.slice(0, -1);
+
+        //append Label row with line break
+        CSV += row + '\r\n';
+
+        //1st loop is to extract each row
+        for (var i = 0; i < arrData.length; i++) {
+            var row = "";
+
+            //2nd loop will extract each column and convert it in string comma-seprated
+            for (var index in arrData[i]) {
+                row += '"' + arrData[i][index] + '",';
+            }
+
+            row.slice(0, row.length - 1);
+
+            //add a line break after each row
+            CSV += row + '\r\n';
+        }
+    }
+
+    ////1st loop is to extract each row
+    //for (var i = 0; i < arrData.length; i++) {
+    //    var row = "";
+
+    //    //2nd loop will extract each column and convert it in string comma-seprated
+    //    for (var index in arrData[i]) {
+    //        row += '"' + arrData[i][index] + '",';
+    //    }
+
+    //    row.slice(0, row.length - 1);
+
+    //    //add a line break after each row
+    //    CSV += row + '\r\n';
+    //}
+
+    if (oilCanningData[0].ocvar > 0) {
+        oilCanningData[0].peakld = 'No Oil canning < 400 N'
+    }
+
+    //console.log("ocvar: " + oilCanningData[0].ocvar);
+    //console.log("peakld: " + oilCanningData[0].peakld);
+
+    CSV += 'Oil Canning Load,0.1mm dent load (DDQ+),0.1mm dent load (BH210)\r\n';
+    CSV += oilCanningData[0].peakld + ',' + oilCanningData[0].DDQ + ',' + oilCanningData[0].BH210, + '\r\n';
+
+    if (CSV == '') {
+        alert("Invalid data");
+        return;
+    }
+
+    //Generate a file name
+    var fileName = "MyReport_";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName += ReportTitle.replace(/ /g, "_");
+
+    //Initialize file format you want csv or xls
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+
+    // Now the little tricky part.
+    // you can use either>> window.open(uri);
+    // but this will not work in some browsers
+    // or you will not get the correct file extension    
+
+    //this trick will generate a temp <a /> tag
+    var link = document.createElement("a");
+    link.href = uri;
+
+    //set the visibility hidden so it will not effect on your web-layout
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+
+    //this part will append the anchor tag and remove it after automatic click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 ///**
 // * This class is the main view for the application. It is specified in app.js as the
 // * "mainView" property. That setting automatically applies the "viewport"

@@ -157,8 +157,8 @@ namespace DentResistanceOilCanningUpgrade.Controllers
             //return oilCanning;
 
             oilCanningReturn.chartList = chartList;
-            model.ocvar = ocvar;
-            model.peakld = peakld;
+            model.ocvar = Math.Round(ocvar, 2);
+            model.peakld = Math.Round(peakld, 2);
             //model.BH210 = BH210;
             //model.DDQ = DDQ;
             model.BH210 = Math.Round(BH210, 3);

@@ -125,6 +125,9 @@
     <Content Include="app\view\main\OilCanningOverview.js" />
     <Content Include="app\view\main\PageFooter.js" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\excelexportjs.js" />
+    <Content Include="Resources\xls.core.min.js" />
+    <Content Include="Resources\xlsx.core.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

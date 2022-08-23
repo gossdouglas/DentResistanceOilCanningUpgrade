@@ -28,7 +28,21 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                 align: 'middle'
                             },
                             items:
-                                [                                  
+                                [
+                                    {
+                                        xtype: 'textfield',
+                                        id: 'OcvarOcCalculate',
+                                        name: 'ocvar',
+                                        width: '5%',
+                                        hidden: true,
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        id: 'PeakldrOcCalculate',
+                                        name: 'peakld',
+                                        width: '5%',
+                                        hidden: true,
+                                    },
                                     {
                                         xtype: 'textfield',
                                         id: 'FvrOcCalculate',
@@ -124,8 +138,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         fieldLabel: 'DDQ',
                                         labelAlign: 'top',
                                         width: '11%',
-                                        //allowBlank: true,
-                                        //regex: /^(\.6[5-9]+|\.7\d*|\.8)$/i,
                                         msgTarget: 'side', // location of the error message
                                         editable: false
                                     },
@@ -136,8 +148,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         fieldLabel: 'BH210',
                                         labelAlign: 'top',
                                         width: '11%',
-                                        //allowBlank: true,
-                                        //regex: /^(\.6[5-9]+|\.7\d*|\.8)$/i,
                                         msgTarget: 'side', // location of the error message
                                         editable: false
                                     },
@@ -215,15 +225,15 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                             click: 'onCalculateOcClick'
                                         }
                                     },
-                                    {
-                                        xtype: 'button',
-                                        text: "Clear Results",
-                                        margin: '20 10 0 0',
-                                        width: '10%',
-                                        listeners: {
-                                            click: 'onClearResultsClick'
-                                        }
-                                    },
+                                    //{
+                                    //    xtype: 'button',
+                                    //    text: "Clear Results",
+                                    //    margin: '20 10 0 0',
+                                    //    width: '10%',
+                                    //    listeners: {
+                                    //        click: 'onClearResultsClick'
+                                    //    }
+                                    //},
                                     {
                                         xtype: 'button',
                                         text: "Download Excel Template",
@@ -256,7 +266,27 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         width: '10%',
                                         disabled: true,
                                         listeners: {
-                                            click: 'onExportOcClick'
+                                            //click: 'onExportOcClick'
+                                            click: function (input, val, opts) {
+
+                                                oilCanning = [];
+                                                tmpObject = {
+                                                    ocvar: Ext.getCmp('OcvarOcCalculate').getValue(),
+                                                    peakld: Ext.getCmp('PeakldrOcCalculate').getValue(),
+                                                    fvr: Ext.getCmp('FvrOcCalculate').getValue(),
+                                                    svr: Ext.getCmp('SvrOcCalculate').getValue(),
+                                                    gaugeini: Ext.getCmp('ThicknessOcCalculate').getValue(),
+                                                    span: Ext.getCmp('SpanOcCalculate').getValue(),
+                                                    emaj: Ext.getCmp('EmajOcCalculate').getValue(),
+                                                    emin: Ext.getCmp('EminOcCalculate').getValue(),
+                                                    DDQ: Ext.getCmp('DdqOcCalculate').getValue(),
+                                                    BH210: Ext.getCmp('Bh210OcCalculate').getValue()
+                                                };
+
+                                                oilCanning.push(tmpObject);
+                                                var exportDetailedValue = Ext.getCmp('ExportDetailedOcCalculate').getValue();
+                                                OilCanningToCSVConvertor(oilCanning, getChartList(), "ReportTitle", exportDetailedValue);
+                                            }
                                         }
                                     },
                                     {
@@ -268,6 +298,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                                 id: 'ExportDetailedOcCalculate',
                                                 //name: 'ExportDetailedOcCalculate',
                                                 //inputValue: '1',
+                                                value: true
                                             },
                                         ],
                                     }
