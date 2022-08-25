@@ -1,13 +1,7 @@
 Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormCalcResults', {
-    //extend: 'Ext.form.Panel',
     extend: 'Ext.panel.Panel',
     xtype: 'dr-model1-calc-results',
     alias: 'dr-model1-calc-results',
-
-    //layout: {
-    //    type: 'hbox',
-    //    align: 'stretch',
-    //},
     layout: {
         type: 'hbox',
         pack: 'center',

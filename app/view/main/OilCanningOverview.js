@@ -13,17 +13,6 @@ var str2 = '<a href="#" onclick="showOcBulkInput()"><b>Bulk Input</b></a><br>' +
     'This bulk input will allow Ford to run many inquires at one time reducing the time it takes them to analyze various thicknesses. ' +
     '<p><center><img src="images/oilcanningroof.jpg" border="1"><br>'
 
-//var str3 = '<canvas width="500" height="500" style="width: 200px; height: 200px;"></canvas><div class="demo">' +
-//    //'<p>&#215; Angle offset and arc</p><pre>' +
-//    //'data-fgColor="#66CC66" data-angleOffset=-125 data-angleArc=250 data-rotation=anticlockwise</pre>' +
-//    '<input class="knob" data-angleOffset=-125 data-angleArc=250 data-fgColor="#66EE66" data-rotation="anticlockwise" value="35">' +
-//    '</div>'
-
-//var str3 = '<canvas width="500" height="500" style="width: 200px; height: 200px;"></canvas><div class="demo">' +
-//    //'<p>&#215; Angle offset and arc</p><pre>' +
-//    //'data-fgColor="#66CC66" data-angleOffset=-125 data-angleArc=250 data-rotation=anticlockwise</pre>' +
-//    '<input class="knob" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#66EE66" data-rotation="anticlockwise" value="35" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background: none; font: bold 40px Arial; text-align: center; color: rgb(102, 238, 102); padding: 0px; appearance: none;">'
-
 Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
     extend: 'Ext.form.Panel',
     xtype: 'oil-canning-overview',
@@ -31,13 +20,12 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
         [
             {
                 xtype: 'panel',
-                //id: 'dr-overview',
                 width: '100%',
                 bodyPadding: '5',
                 flex: 9,
-                //hidden: true,
                 items:
                     [
+                        //oil canning
                         {
                             xtype: 'panel',
                             title: 'Models',
@@ -89,67 +77,9 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                                     },
                                 ]
                         },
-                        //{
-                        //    xtype: 'panel',
-                        //    title: 'Brief Description of Dent Resistance models',
-                        //    titleAlign: 'center',
-                        //    width: '100%',
-                        //    bodyPadding: '5',
-                        //    flex: 9,
-                        //    items:
-                        //        [
-                        //            {
-                        //                xtype: 'panel',
-                        //                layout: {
-                        //                    type: 'hbox',
-                        //                    align: 'stretch',
-                        //                },
-                        //                items:
-                        //                    [
-                        //                        {
-                        //                            xtype: 'panel',
-                        //                            width: '100%',
-                        //                            html: str3
-                        //                        },
-                        //                    ]
-                        //            },
-                        //        ]
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    title: 'References',
-                        //    titleAlign: 'center',
-                        //    width: '100%',
-                        //    bodyPadding: '5',
-                        //    flex: 9,
-                        //    items:
-                        //        [
-                        //            {
-                        //                xtype: 'panel',
-                        //                layout: {
-                        //                    type: 'hbox',
-                        //                    align: 'stretch',
-                        //                },
-                        //                items:
-                        //                    [
-                        //                        {
-                        //                            xtype: 'panel',
-                        //                            width: '5%',
-                        //                            html: '1.'
-                        //                        },
-                        //                        {
-                        //                            xtype: 'panel',
-                        //                            width: '95%',
-                        //                            html: str4
-                        //                        },
-                        //                    ]
-                        //            },
-                        //        ]
-                        //},
+                        //bulk oil canning
                         {
                             xtype: 'panel',
-                            //title: 'References',
-                            //titleAlign: 'center',
                             width: '100%',
                             bodyPadding: '5',
                             flex: 9,
@@ -163,11 +93,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                                         },
                                         items:
                                             [
-                                                //{
-                                                //    xtype: 'panel',
-                                                //    width: '5%',
-                                                //    html: '1.'
-                                                //},
                                                 {
                                                     xtype: 'panel',
                                                     width: '95%',
@@ -179,145 +104,5 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                         },
                     ]
             },
-
-            //{
-            //    xtype: 'panel',
-            //    title: 'Models',
-            //    titleAlign: 'center',
-            //    width: '100%',
-            //    bodyPadding: '5',
-            //    flex: 9,
-            //    items:
-            //        [
-            //            {
-            //                xtype: 'panel',
-            //                layout: {
-            //                    type: 'hbox',
-            //                    align: 'stretch',
-            //                },
-            //                items:
-            //                    [
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '5%',
-            //                            html: '1.'
-            //                        },                                  
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '95%',
-            //                            html: str1
-            //                        },
-            //                    ]
-            //            },
-            //            {
-            //                xtype: 'panel',
-            //                layout: {
-            //                    type: 'hbox',
-            //                    align: 'stretch',
-            //                },
-            //                items:
-            //                    [
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '5%',
-            //                            html: '2.'
-            //                        },
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '95%',
-            //                            html: str2
-            //                        },
-            //                    ]
-            //            },
-            //        ]
-            //},
-            //{
-            //    xtype: 'panel',
-            //    title: 'Brief Description of Dent Resistance models',
-            //    titleAlign: 'center',
-            //    width: '100%',
-            //    bodyPadding: '5',
-            //    flex: 9,
-            //    items:
-            //        [
-            //            {
-            //                xtype: 'panel',
-            //                layout: {
-            //                    type: 'hbox',
-            //                    align: 'stretch',
-            //                },
-            //                items:
-            //                    [
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '100%',
-            //                            html: str3
-            //                        },
-            //                    ]
-            //            },
-            //        ]
-            //},
-            //{
-            //    xtype: 'panel',
-            //    title: 'References',
-            //    titleAlign: 'center',
-            //    width: '100%',
-            //    bodyPadding: '5',
-            //    flex: 9,
-            //    items:
-            //        [
-            //            {
-            //                xtype: 'panel',
-            //                layout: {
-            //                    type: 'hbox',
-            //                    align: 'stretch',
-            //                },
-            //                items:
-            //                    [
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '5%',
-            //                            html: '1.'
-            //                        },
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '95%',
-            //                            html: str4
-            //                        },
-            //                    ]
-            //            },
-            //        ]
-            //},
-            //{
-            //    xtype: 'panel',
-            //    //title: 'References',
-            //    //titleAlign: 'center',
-            //    width: '100%',
-            //    bodyPadding: '5',
-            //    flex: 9,
-            //    items:
-            //        [
-            //            {
-            //                xtype: 'panel',
-            //                layout: {
-            //                    type: 'hbox',
-            //                    align: 'stretch',
-            //                },
-            //                items:
-            //                    [
-            //                        //{
-            //                        //    xtype: 'panel',
-            //                        //    width: '5%',
-            //                        //    html: '1.'
-            //                        //},
-            //                        {
-            //                            xtype: 'panel',
-            //                            width: '95%',
-            //                            html: str5
-            //                        },
-            //                    ]
-            //            },
-            //        ]
-            //},
         ],
 });

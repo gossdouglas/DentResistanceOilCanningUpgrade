@@ -5,6 +5,7 @@ using System.Web;
 
 namespace DentResistanceOilCanningUpgrade.Models
 {
+    //view model used to return data from dent resistance calculation
     public class CalculationDentReistance
     {
         public string GradeName { get; set; }
@@ -19,7 +20,6 @@ namespace DentResistanceOilCanningUpgrade.Models
         public double FootPounds { get; set; }
         public double RunningTotal { get; set; }
 
-        //public int? id { get; set; }
         public int PoundsForce { get; set; }
         public double Result { get; set; }
     }

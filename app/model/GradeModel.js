@@ -1,9 +1,7 @@
 ﻿Ext.define('DentResistanceOilCanningUpgrade.model.GradeModel', {
     extend: 'Ext.data.Model',
-    //idProperty: 'GradeModelId',
     idProperty: 'grade_key',
     fields: [
-
         { name: 'grade_key', type: 'string' },
         { name: 'model', type: 'string' },
         { name: 'grade_name', type: 'string' },

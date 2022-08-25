@@ -1,11 +1,9 @@
-Ext.QuickTips.init();
-objExcelJson = new Object();
-
+//Ext.QuickTips.init();
 Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
     extend: 'Ext.form.Panel',
     xtype: 'oil-canning-bulk-input-form',
     border: false,
-    controller: 'oil-canning-bulk-input-form-controller',
+    //controller: 'oil-canning-bulk-input-form-controller',
     scrollable: true,
     layout: {
         type: 'vbox',

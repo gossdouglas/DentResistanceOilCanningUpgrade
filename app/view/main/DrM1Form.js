@@ -1,5 +1,4 @@
-Ext.QuickTips.init();
-
+//Ext.QuickTips.init();
 Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
     extend: 'Ext.form.Panel',
     xtype: 'dr-model1-form',
@@ -10,6 +9,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
 
     items:
         [
+            //command panel
             {
                 xtype: 'panel',
                 title: 'Load for 0.1 mm Dent Depth, Model 1',
@@ -22,10 +22,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                         //entry fields
                         {
                             xtype: 'panel',
-                            //layout: {
-                            //    type: 'hbox',
-                            //    align: 'stretch',
-                            //},
                             layout: {
                                 type: 'hbox',
                                 pack: 'center',
@@ -35,7 +31,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                                 [
                                     {
                                         xtype: 'textfield',
-                                        //width: '3%',
                                         id: 'GradeKey',
                                         name: 'GradeKey',
                                         bind: '{gradeKeyDrM1Combo.value}',
@@ -45,7 +40,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                                     },
                                     {
                                         xtype: 'textfield',
-                                        //width: '3%',
                                         id: 'GradeName',
                                         name: 'GradeName',
                                         hidden: true,
@@ -68,7 +62,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                                             autoLoad: true
                                         },
                                         queryMode: 'local',
-                                        //queryMode: 'remote',
                                         allowBlank: false,
                                         msgTarget: 'side', // location of the error message
                                         listeners: {
@@ -245,10 +238,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                         //command buttons
                         {
                             xtype: 'panel',
-                            //layout: {
-                            //    type: 'hbox',
-                            //    align: 'stretch',
-                            //},
                             layout: {
                                 type: 'hbox',
                                 pack: 'center',
@@ -368,8 +357,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                 bodyPadding: '5',
                 flex: 2,
                 items:
-                    [
-                        
+                    [                     
                     ]
             },
             //test results panel
@@ -381,7 +369,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1Form', {
                 flex: 5,
                 items:
                     [
-                        //
                         {
                             xtype: 'panel',
                             id: 'DDEChartUlsacGif',

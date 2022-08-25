@@ -1,5 +1,4 @@
-Ext.QuickTips.init();
-
+//Ext.QuickTips.init();
 Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
     extend: 'Ext.form.Panel',
     xtype: 'dr-model2-form',
@@ -10,6 +9,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
 
     items:
         [
+            //command panel
             {
                 xtype: 'panel',
                 title: 'Dent Depth for a Given Applied Load, Model 2',
@@ -17,20 +17,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                 width: '100%',
                 bodyPadding: '5',
                 flex: 1,
-                //layout: {
-                //    type: 'hbox',
-                //    pack: 'center',
-                //    align: 'middle'
-                //},
                 items:
                     [
                         //entry fields
                         {
                             xtype: 'panel',
-                            //layout: {
-                            //    type: 'hbox',
-                            //    align: 'stretch',
-                            //},
                             layout: {
                                 type: 'hbox',
                                 pack: 'center',
@@ -40,7 +31,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                 [
                                     {
                                         xtype: 'textfield',
-                                        //width: '3%',
                                         id: 'GradeKey',
                                         name: 'GradeKey',
                                         bind: '{gradeKeyDrM2Combo.value}',
@@ -50,7 +40,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                     },
                                     {
                                         xtype: 'textfield',
-                                        //width: '3%',
                                         id: 'GradeName',
                                         name: 'GradeName',
                                         hidden: true,
@@ -73,7 +62,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                             autoLoad: true
                                         },
                                         queryMode: 'local',
-                                        //queryMode: 'remote',
                                         allowBlank: false,
                                         msgTarget: 'side', // location of the error message
                                         listeners: {
@@ -187,10 +175,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                         //range notes
                         {
                             xtype: 'panel',
-                            //layout: {
-                            //    type: 'hbox',
-                            //    align: 'stretch',
-                            //},
                             layout: {
                                 type: 'hbox',
                                 pack: 'center',
@@ -249,11 +233,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                 pack: 'center',
                                 align: 'middle'
                             },
-                            //layout: {
-                            //    type: 'hbox',
-                            //    align: 'stretch',
-                            //},
-                            //layout: 'center',
                             items:
                                 [
                                     {

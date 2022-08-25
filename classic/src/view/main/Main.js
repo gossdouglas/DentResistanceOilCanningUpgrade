@@ -32,16 +32,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         'DentResistanceOilCanningUpgrade.view.main.OilCanningForm',
         'DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm',
         'DentResistanceOilCanningUpgrade.view.main.OilCanningFormController',
-        'DentResistanceOilCanningUpgrade.view.main.OcBulkInputFormController',
         //bulk oil canning calculator
         'DentResistanceOilCanningUpgrade.grid.OcBulkCalculationGrid',
         'DentResistanceOilCanningUpgrade.grid.OcBulkErrorGrid',
-        'DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationController',
         'DentResistanceOilCanningUpgrade.store.OcBulkCalculationStore',
         'DentResistanceOilCanningUpgrade.store.OcBulkErrorStore',
-
-        //'DentResistanceOilCanning.view.charts.line.OcLoadDeflection',
-        //'DentResistanceOilCanning.store.OcLoadDeflectionStore',
     ],
 
     controller: 'main',
@@ -165,7 +160,7 @@ function showDRModel2() {
     }).show()
 }
 
-//show the dent resistance model 2 pop up
+//show the oil canning calculation pop up
 function showOcCalculator() {
 
     var win = Ext.create('Ext.window.Window', {
@@ -185,7 +180,7 @@ function showOcCalculator() {
     //var OpenWindow = window.open('OilCanning/OilCanningCalculator.html');
 }
 
-//show the bulk oil canning pop up
+//show the bulk oil canning calculation pop up
 function showOcBulkInput() {
 
     var win = Ext.create('Ext.window.Window', {
@@ -207,19 +202,23 @@ function showOcBulkInput() {
 //holds whether an excel row contains data that is out of range
 var excelRowAllValid;
 var objExcelErrors = [];
-
 var bulkOilCanningList = [];
+
+//fill the bulkOilCanningList array with valid bulk oil canning calculations
 function setBulkOilCanningList(bulkOilCanningListData) {
 
     bulkOilCanningList = bulkOilCanningListData;
-    console.log("bulkOilCanningList");
-    console.log(bulkOilCanningList);
+    //console.log("bulkOilCanningList");
+    //console.log(bulkOilCanningList);
 }
 
+//retrieve the bulkOilCanningList array
 function getBulkOilCanningList() {
 
     return bulkOilCanningList;
 }
+
+//read the rows of an Excel file in order to carry out several oil canning calculations in one operation
 function ExportToTable() {
     /*Checks whether the file is a valid excel file*/
     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
@@ -281,7 +280,7 @@ function ExportToTable() {
                     }
 
                     //Convert the cell value to Json
-                    if (xlsxflag) {
+                    if (xlsxflag) {//if the file is an xlsx type...
                         //convert the contents of an excel sheet into an object
                         var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
                         //object which will hold a single line of excel data in json format
@@ -290,9 +289,11 @@ function ExportToTable() {
                         //for each excel file row...
                         $(exceljson).each(function (index) {
 
-                            console.log("**************************");
+                            //console.log("**************************");
                             //console.log("Processing row " + excelRowNumber + " of the uploaded Excel file...");
-                            //set that the values in this excel row are within range
+
+                            //set that the values in this excel row are all within range
+                            //the rows will be tested below for validity
                             excelRowAllValid = true;
 
                             //create a tmpObject
@@ -310,10 +311,7 @@ function ExportToTable() {
                                 BH210: ""
                             };
 
-                            //validate that the values of this excel row are within range
-                            //validateBulkOilCanningExcelRow(tmpObject);
-
-                            //push tmpObject to objExcelJson
+                            //push tmpObject to objExcelJson if the contents of this row are valid
                             if (excelRowAllValid) {
                                 objExcelJson.push(tmpObject);
                             }
@@ -325,7 +323,7 @@ function ExportToTable() {
                         //console.log("objExcelJson xlsxflag");
                         //console.log(objExcelJson);
                     }
-                    else {
+                    else {//if the file is not an xlsx type...
                         //convert the contents of an excel sheet into an object
                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
                         //object which will hold a single line of excel data in json format
@@ -353,9 +351,6 @@ function ExportToTable() {
                                 BH210: ""
                             };
 
-                            //validate that the values of this excel row are within range
-                            //validateBulkOilCanningExcelRow(tmpObject);
-
                             //push tmpObject to objExcelJson
                             if (excelRowAllValid) {
                                 objExcelJson.push(tmpObject);
@@ -370,10 +365,10 @@ function ExportToTable() {
                     }
                 });
 
-                console.log("post to the back end.");
-                console.log(objExcelJson);
-                console.log("objExcelErrors");
-                console.log(objExcelErrors);
+                //console.log("post to the back end.");
+                //console.log(objExcelJson);
+                //console.log("objExcelErrors");
+                //console.log(objExcelErrors);
 
                 //post to the back end
                 Ext.Ajax.request({
@@ -388,8 +383,8 @@ function ExportToTable() {
                         if (resp.success) {
                             //console.log("resp");
                             //console.log(resp);
-                            //console.log("resp.data");
-                            //console.log(resp.data);
+                            console.log("resp.data");
+                            console.log(resp.data);
 
                             //if the ocvar calculation is greater than zero, no oil canning is present so 
                             //replace the numerical value of peakld with a string for display
@@ -406,20 +401,28 @@ function ExportToTable() {
                             //load that store with current data
                             store.add(resp.data);
 
-                            console.log("resp.data");
-                            console.log(resp.data);
-
-                            //load the bulk oil canning array with valid data for later retrieval by an export request
-                            setBulkOilCanningList(resp.data);
-
-                            Ext.getCmp('ExportBulkOilCanning').setDisabled(false);
-
                             //link up to the bulk oil canning error store
                             var store = Ext.data.StoreManager.lookup('OcBulkErrorStore');
                             //clear that store of past data
                             store.removeAll();
                             //load that store with current data
                             store.add(objExcelErrors);
+
+                            //load the bulk oil canning results array with valid data for later retrieval by an export to Excel request
+                            setBulkOilCanningList(resp.data);
+
+                            //console.log("resp.data.length");
+                            //console.log(resp.data.length);
+
+                            //if the is bulk oil canning data that can be exported to Excel then enable the export button
+                            if (resp.data.length != 0) {
+                                Ext.getCmp('ExportBulkOilCanning').setDisabled(false);
+                            }
+                            //if the is not bulk oil canning data that can be exported to Excel then disable the export button
+                            else {
+                                Ext.getCmp('ExportBulkOilCanning').setDisabled(true);
+                            }
+                            
                         }
                         //print the response from the server
                         else {
@@ -449,7 +452,7 @@ function ExportToTable() {
     }
 }
 
-//validate an Excel value
+//validate an Excel value.  invalid values are pushed onto the objExcelErrors array
 function validateBulkOilCanningExcelRow(minValue, maxValue, evaluatedValue, evaluatedName, excelRowId) {
 
     //holds a description of the range error

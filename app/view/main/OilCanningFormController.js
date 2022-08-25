@@ -2,7 +2,7 @@
     extend: 'Ext.app.ViewController',
     alias: 'controller.oil-canning-form-controller',
 
-    //
+    //when the calculate button is pressed...
     onCalculateOcClick: function (sender, record) {
         var form = this.getView().getForm();
         var formValues = form.getValues();

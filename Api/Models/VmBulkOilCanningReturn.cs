@@ -6,6 +6,7 @@ using System.Web;
 
 namespace DentResistanceOilCanningUpgrade.Api.Models
 {
+    //view model used to return data from a bulk oil canning calculation
     public class VmBulkOilCanningReturn
     {
         public int excelRowId { get; set; }

@@ -1,18 +1,15 @@
-Ext.QuickTips.init();
-
+//Ext.QuickTips.init();
 Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
     extend: 'Ext.form.Panel',
     xtype: 'oil-canning-form',
     border: false,
     controller: 'oil-canning-form-controller',
     scrollable: true,
-    //url: 'api/OilCanning/CalculateOilCanning',
     layout: {
         type: 'vbox',
         pack: 'center',
         align: 'center'
     },
-
     items:
         [
             //command panel
@@ -22,7 +19,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                 titleAlign: 'center',
                 width: '100%',
                 bodyPadding: '5',
-                //flex: 1,
                 flex: 3,
                 items:
                     [
@@ -120,7 +116,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         regex: /^(0|\.0[1-9]+[1-9]*|\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
                                         msgTarget: 'side', // location of the error message
                                         invalidText: 'Major stretch must be a value between 0 and 2',
-                                        //value: '.5'
                                         value: 0
                                     },
                                     {
@@ -135,7 +130,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         regex: /^(0|\.0[1-9]+[1-9]*|\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
                                         msgTarget: 'side', // location of the error message
                                         invalidText: 'Minor stretch must be a value between 0 and 2',
-                                        //value: '.5'
                                         value: 0
                                     },
                                     {
@@ -323,7 +317,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                 titleAlign: 'center',
                 width: '100%',
                 bodyPadding: '5',
-                //flex: 2,
                 flex: 10,
                 items:
                     [
@@ -335,8 +328,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                 xtype: 'panel',
                 width: '100%',
                 bodyPadding: '5',
-                //flex: 9,
-                //flex: 2,
                 items:
                     [
                         {

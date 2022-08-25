@@ -125,7 +125,6 @@ namespace DRFormula
 				sconnectstring = "DSN=" + odbcname + ";User Id=" + UserID + ";Password=" + Password + "; ";
 				//UPGRADE_TODO: (7010) The connection string must be verified to fullfill the .NET data provider connection string requirements. More Information: https://docs.mobilize.net/vbuc/ewis#7010
 				//conn.ConnectionString = sconnectstring;
-				//conn.ConnectionString = @"Data Source=SRCVSFDCSQ117\AMNS;Initial Catalog=Dent_Resist_DB;Persist Security Info=True;User ID=user_dent_resist;Password=$rv_D3nt$!";
 				conn.ConnectionString = "Provider=MSOLEDBSQL;Server=SRCVSFDCSQ117\\AMNS;Database=Dent_Resist_DB;UID=user_dent_resist;PWD=$rv_D3nt$!;";
 				conn.Open();
 

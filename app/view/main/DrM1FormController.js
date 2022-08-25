@@ -1,9 +1,8 @@
-﻿
-Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
+﻿Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.dr-model1-form-controller',
 
-    //
+    //when the calculate button is pressed...
     onCalculateDrM1Click: function (sender, record) {
         var form = this.getView().getForm();
         var formValues = form.getValues();
@@ -17,7 +16,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
         //console.log(formFields);
 
         if (!form.isValid()) {
-            //Ext.Msg.alert('Save not allowed', 'Some required fields are empty.');
             Ext.Message.show({
                 title: "Save not allowed",
                 msg: "Some required fields are empty.",
@@ -30,20 +28,18 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
             // Submit the Ajax request and handle the response
             form.submit({
                 url: 'api/DentResistance/CalculateModelOne',
-                //url: 'api/OilCanning/LoadOilCanning',
                 waitMsg: 'Calculating..',
                 clientValidation: true,
                 submitEmptyText: true,
                 success: function (frm, action) {
 
-                    //var model = Ext.create('TiSlots.model.TiSlot');
-                    //var model = Ext.create('DentResistanceOilCanning.model.CalculationDentReistanceModel');
                     var resp = Ext.decode(action.response.responseText);
                     //console.clear();
                     //console.log("calculation response: ");
                     //console.log(resp);
                     //console.log(resp.data.GradeName);
 
+                    //build a calculation results object from the response
                     var calcResults = Ext.create('dr-model1-calc-results',
                         {
                             items: [
@@ -108,7 +104,8 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
                     //console.log('dr-model1-calc-results');
                     //console.log(calcResults);
 
-                    Ext.getCmp('DrM1FormResultsPanel').add(calcResults);//works
+                    //add the calculation results to the results panel
+                    Ext.getCmp('DrM1FormResultsPanel').add(calcResults);
                 },
                 failure: function (frm, action) {
                     if (action.failureType === Ext.form.action.Action.CLIENT_INVALID) {
@@ -125,7 +122,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
         }     
     },
 
-    //
+    //clear the results
     onClearResultsClick: function (sender, record) {
         var form = this.getView().getForm();
 

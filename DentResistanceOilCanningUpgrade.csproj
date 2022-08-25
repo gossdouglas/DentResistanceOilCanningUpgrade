@@ -117,9 +117,7 @@
     <Content Include="app\view\main\DrM2FormController.js" />
     <Content Include="app\view\main\MainController.js" />
     <Content Include="app\view\main\MainModel.js" />
-    <Content Include="app\view\main\OcBulkCalculationController.js" />
     <Content Include="app\view\main\OcBulkInputForm.js" />
-    <Content Include="app\view\main\OcBulkInputFormController.js" />
     <Content Include="app\view\main\OilCanningForm.js" />
     <Content Include="app\view\main\OilCanningFormController.js" />
     <Content Include="app\view\main\OilCanningOverview.js" />
@@ -200,7 +198,6 @@
     <Compile Include="Api\DRFormula\UpgradeHelpers.Utils\StringsHelper.cs" />
     <Compile Include="Api\DRFormula\UpgradeHelpers.Utils\WeakDictionary.cs" />
     <Compile Include="Api\DRFormula\UpgradeHelpers.Utils\XArrayHelper.cs" />
-    <Compile Include="Api\Models\ApplicationDbContext.cs" />
     <Compile Include="Api\Models\CalculationDentReistance.cs" />
     <Compile Include="Api\Models\Chart.cs" />
     <Compile Include="Api\Models\dr_Formulas.cs" />

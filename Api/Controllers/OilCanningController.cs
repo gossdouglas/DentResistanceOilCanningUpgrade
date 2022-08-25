@@ -25,10 +25,13 @@ namespace DentResistanceOilCanningUpgrade.Controllers
 {
     public class OilCanningController : ApiController
     {
+        //calculate oil canning
         [HttpPost]
         public ReturnObject<VmOilCanningReturn> CalculateOilCanning(OilCanning model)
         {
+            //create an empty return object
             VmOilCanningReturn oilCanningReturn = new VmOilCanningReturn();
+            //create an empty chart list that will be added to the return object
             List<Chart> chartList = new List<Chart>();
 
             double ocvar = model.ocvar;
@@ -154,30 +157,33 @@ namespace DentResistanceOilCanningUpgrade.Controllers
             }
             while (index3 <= 201);
             ocvar = numArray3[1] + num17 * (2.0 * numArray4[1]);
-            //return oilCanning;
 
+            //build the return object
+            //add the chart list to the return object
             oilCanningReturn.chartList = chartList;
             model.ocvar = Math.Round(ocvar, 2);
             model.peakld = Math.Round(peakld, 2);
-            //model.BH210 = BH210;
-            //model.DDQ = DDQ;
             model.BH210 = Math.Round(BH210, 3);
             model.DDQ = Math.Round(DDQ, 2);
             oilCanningReturn.oilcanning = model;
 
+            //if the chart list is not null...
             if (chartList != null)
             {
                 return new ReturnObject<VmOilCanningReturn>() { success = true, data = oilCanningReturn, validated = true };
             }
+            //if the chart list is null...
             else
             {
                 return new ReturnObject<VmOilCanningReturn>() { success = false, data = oilCanningReturn, validated = true };
             }
         }
 
+        //calculate bulk oil canning
         [HttpPost]
         public ReturnObject<List<VmBulkOilCanningReturn>> CalculateBulkOilCanning(List<OilCanning> model)
         {
+            //create an empty return object
             List<VmBulkOilCanningReturn> oilCanningReturnList = new List<VmBulkOilCanningReturn>();
 
             //for each posted oil canning calculation...
@@ -332,8 +338,7 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 while (index3 <= 201);
                 ocvar = numArray3[1] + num17 * (2.0 * numArray4[1]);
 
-                //set this oil canning return's chartList object to chartList
-                //oilCanningReturn.chartList = chartList;
+                //build the return object
                 oc.ocvar = ocvar;
                 oc.peakld = peakld;
                 oc.BH210 = BH210;
@@ -357,10 +362,12 @@ namespace DentResistanceOilCanningUpgrade.Controllers
                 oilCanningReturnList.Add(oilCanningReturn);
             }
 
+            //if the return list is not null...
             if (oilCanningReturnList != null)
             {
                 return new ReturnObject<List<VmBulkOilCanningReturn>>() { success = true, data = oilCanningReturnList, validated = true };
             }
+            //if the return list is null...
             else
             {
                 return new ReturnObject<List<VmBulkOilCanningReturn>>() { success = false, data = oilCanningReturnList, validated = true };

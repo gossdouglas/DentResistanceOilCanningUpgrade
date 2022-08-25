@@ -12,7 +12,11 @@ namespace DRFormula
 {
 	public class Formula
 	{
-
+		//25Aug22
+		//Tony Goss
+		//This logic was converted from the Visual Basic COM+ object used in the classic ASP version of this site
+		//As little editing as possible was done to this logic in order to reduce the possiblity of calculation errors
+		//caused by the upgrade
 
 		private string mstrConn = "";
 		private double mdblNewtons = 0;

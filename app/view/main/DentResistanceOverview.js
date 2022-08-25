@@ -10,11 +10,6 @@ var str2 = '<a href="#" onclick="showDRModel2()"><b>Dent Depth for a Given Appli
     'to determine the resulting dent depth in a panel for any given applied load. ' +
     '<p><center><img src="images/dentresistance2.gif" border="1"><br><small>Figure 1: Load vs. dent depth characteristics.</small ></center >'
 
-//var str2 = '<a href="#" onclick="showDRModel2()"><b>Dent Depth for a Given Applied Load</b></a>' +
-//    '<br>Often, it is useful to determine the dent depth at any applied load. ' +
-//    'Figure 1 shows a typical load vs. dent depth plot.  Using these characteristic plots, it is possible  ' +
-//    'to determine the resulting dent depth in a panel for any given applied load. ' 
-
 var str3 = 'In North America, dent resistance has been most commonly evaluated by testing panel assemblies using the Auto/Steel Partnership ' +
     ' procedure for quasi-static denting [1]. The dent test procedure consists of using a 25.4mm' +
     'spherical indenter to apply a series of incrementally increasing loads to the panel. Figure 2 shows a ' +
@@ -41,11 +36,9 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DentResistanceOverview', {
         [
             {
                 xtype: 'panel',
-                //id: 'dr-overview',
                 width: '100%',
                 bodyPadding: '5',
                 flex: 9,
-                //hidden: true,
                 items:
                     [
                         //model 1 and model 2
