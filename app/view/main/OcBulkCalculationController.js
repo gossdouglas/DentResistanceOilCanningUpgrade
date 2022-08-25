@@ -1,9 +1,5 @@
-﻿
-//Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM1FormController', {
-Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationController', {
+﻿Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationController', {
     extend: 'Ext.app.ViewController',
-
-    //alias: 'controller.dr-model1-form-controller',
     alias: 'controller.oc-bulk-calculation-controller',
 
     //
@@ -11,7 +7,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationControlle
         var form = this.getView().getForm();
         var formValues = form.getValues();
         var formFields = form.getFields();
-        console.clear();
+        //console.clear();
         //console.log("record")
         //console.log(record)
         //console.log("form")
@@ -20,7 +16,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationControlle
         //console.log(formFields);
 
         if (!form.isValid()) {
-            //Ext.Msg.alert('Save not allowed', 'Some required fields are empty.');
             Ext.Message.show({
                 title: "Save not allowed",
                 msg: "Some required fields are empty.",
@@ -43,8 +38,8 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkCalculationControlle
                     //var model = Ext.create('DentResistanceOilCanningUpgrade.model.CalculationDentReistanceModel');
                     var resp = Ext.decode(action.response.responseText);
                     //console.clear();
-                    //console.log("calculation response: ");
-                    //console.log(resp);
+                    console.log("calculation response: ");
+                    console.log(resp);
                     //console.log(resp.data.GradeName);
 
                     //console.log("calculation results object: ");

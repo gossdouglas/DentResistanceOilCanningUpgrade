@@ -10,18 +10,8 @@
 Ext.define('DentResistanceOilCanningUpgrade.view.charts.line.OcLoadDeflection', {
     extend: 'Ext.Panel',
     xtype: 'oc-load-deflection',
-    //controller: 'oc-load-deflection',
 
     width: 650,
-
-    //tbar: [
-    //    '->',
-    //    {
-    //        text: 'Preview',
-    //        handler: 'onPreview'
-    //    }
-    //],
-
     items:
         [
             {

@@ -1,5 +1,6 @@
 ﻿Ext.define('DentResistanceOilCanningUpgrade.model.VmOilCanningReturnModel', {
     extend: 'Ext.data.Model',
+    idProperty: 'excelRowId',
     fields: [
         { name: 'excelRowId', type: 'int' },
 

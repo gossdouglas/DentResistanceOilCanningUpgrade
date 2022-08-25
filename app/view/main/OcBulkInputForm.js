@@ -32,10 +32,12 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
                             },
                             items:
                                 [
+                                    //choose file button
                                     {
                                         xtype: 'panel',
                                         html: '<input type="file" id="excelfile" onChange=""/>',
-                                    },                                  
+                                    },
+                                    //load the selected excel file for bulk canning calculation
                                     {
                                         xtype: 'button',
                                         text: "Load Excel",
@@ -49,6 +51,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
                                             }
                                         }
                                     },
+                                    //clear results
                                     {
                                         xtype: 'button',
                                         text: "Clear Results",
@@ -62,11 +65,15 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
                                                 store.removeAll();
                                                 var store = Ext.data.StoreManager.lookup('OcBulkErrorStore');
                                                 store.removeAll();
+                                                //disable the export button after the store is emptied
+                                                Ext.getCmp('ExportBulkOilCanning').setDisabled(true);
                                             }
                                         }
                                     },
+                                    //export results
                                     {
                                         xtype: 'button',
+                                        id: 'ExportBulkOilCanning',
                                         text: "Export",
                                         disabled: true,
                                         width: '10%',
@@ -74,9 +81,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OcBulkInputForm', {
                                         margin: '0 1 0 1',
                                         listeners: {
                                             click: function (input, val, opts) {
+                                                BulkOilCanningToCSVConvertor(getBulkOilCanningList(), "BulkOilCanning_Report", true);
                                             }
                                         }
                                     },
+                                    //download an excel template
                                     {
                                         xtype: 'button',
                                         text: "Download Excel Template",

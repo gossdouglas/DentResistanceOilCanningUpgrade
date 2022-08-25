@@ -6,17 +6,24 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
     border: false,
     controller: 'oil-canning-form-controller',
     scrollable: true,
-    url: 'api/OilCanning/CalculateOilCanning',
+    //url: 'api/OilCanning/CalculateOilCanning',
+    layout: {
+        type: 'vbox',
+        pack: 'center',
+        align: 'center'
+    },
 
     items:
         [
+            //command panel
             {
                 xtype: 'panel',
                 title: 'Prediction of Oil Canning and Dent Resistance of Roof Panels',
                 titleAlign: 'center',
                 width: '100%',
                 bodyPadding: '5',
-                flex: 1,
+                //flex: 1,
+                flex: 3,
                 items:
                     [
                         //entry fields
@@ -216,24 +223,18 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                             },
                             items:
                                 [
+                                    //calculate button
                                     {
                                         xtype: 'button',
                                         text: "Calculate",
+                                        //margin: top, right, bottom, left
                                         margin: '20 10 0 0',
                                         width: '10%',
                                         listeners: {
                                             click: 'onCalculateOcClick'
                                         }
                                     },
-                                    //{
-                                    //    xtype: 'button',
-                                    //    text: "Clear Results",
-                                    //    margin: '20 10 0 0',
-                                    //    width: '10%',
-                                    //    listeners: {
-                                    //        click: 'onClearResultsClick'
-                                    //    }
-                                    //},
+                                    //download an excel template
                                     {
                                         xtype: 'button',
                                         text: "Download Excel Template",
@@ -246,9 +247,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                             }
                                         }
                                     },
+                                    //import values from an excel file
                                     {
                                         xtype: 'button',
                                         text: "Import File",
+                                        //margin: top, right, bottom, left
                                         margin: '20 10 0 0',
                                         width: '10%',
                                         disabled: true,
@@ -256,17 +259,18 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                             //click: 'onClearResultsClick'
                                         }
                                     },
+                                    //export the calculation to a csv file
                                     {
                                         xtype: 'button',
                                         id: 'ExportOcCalculate',
                                         name: 'ExportOcCalculate',
                                         text: "Export to Excel",
-                                        //disabled: true,
+                                        disabled: true,
+                                        //margin: top, right, bottom, left
                                         margin: '20 10 0 0',
                                         width: '10%',
                                         disabled: true,
                                         listeners: {
-                                            //click: 'onExportOcClick'
                                             click: function (input, val, opts) {
 
                                                 oilCanning = [];
@@ -284,11 +288,14 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                                 };
 
                                                 oilCanning.push(tmpObject);
+                                                //if export detailed is selected, load and deflection data is included in the .csv
                                                 var exportDetailedValue = Ext.getCmp('ExportDetailedOcCalculate').getValue();
-                                                OilCanningToCSVConvertor(oilCanning, getChartList(), "ReportTitle", exportDetailedValue);
+                                                //build a .csv
+                                                OilCanningToCSVConvertor(oilCanning, getChartList(), "LoadDeflection_Report", exportDetailedValue);
                                             }
                                         }
                                     },
+                                    //detailed export?
                                     {
                                         xtype: 'fieldcontainer',
                                         defaultType: 'checkboxfield',
@@ -296,8 +303,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                             {
                                                 boxLabel: 'Export Detailed',
                                                 id: 'ExportDetailedOcCalculate',
-                                                //name: 'ExportDetailedOcCalculate',
-                                                //inputValue: '1',
                                                 value: true
                                             },
                                         ],
@@ -314,12 +319,12 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                     pack: 'center',
                     align: 'middle'
                 },
-                //id: 'DrM1FormResultsPanel',
                 title: 'Load Deflection Behavior -150 mm Flat Identer',
                 titleAlign: 'center',
                 width: '100%',
                 bodyPadding: '5',
-                flex: 2,
+                //flex: 2,
+                flex: 10,
                 items:
                     [
                         { xtype: 'oc-load-deflection' }
@@ -330,7 +335,8 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                 xtype: 'panel',
                 width: '100%',
                 bodyPadding: '5',
-                flex: 9,
+                //flex: 9,
+                //flex: 2,
                 items:
                     [
                         {

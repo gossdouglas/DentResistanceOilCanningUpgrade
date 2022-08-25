@@ -208,6 +208,18 @@ function showOcBulkInput() {
 var excelRowAllValid;
 var objExcelErrors = [];
 
+var bulkOilCanningList = [];
+function setBulkOilCanningList(bulkOilCanningListData) {
+
+    bulkOilCanningList = bulkOilCanningListData;
+    console.log("bulkOilCanningList");
+    console.log(bulkOilCanningList);
+}
+
+function getBulkOilCanningList() {
+
+    return bulkOilCanningList;
+}
 function ExportToTable() {
     /*Checks whether the file is a valid excel file*/
     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
@@ -358,10 +370,10 @@ function ExportToTable() {
                     }
                 });
 
-                //console.log("post to the back end.");
-                //console.log(objExcelJson);
-                //console.log("objExcelErrors");
-                //console.log(objExcelErrors);
+                console.log("post to the back end.");
+                console.log(objExcelJson);
+                console.log("objExcelErrors");
+                console.log(objExcelErrors);
 
                 //post to the back end
                 Ext.Ajax.request({
@@ -393,6 +405,14 @@ function ExportToTable() {
                             store.removeAll();
                             //load that store with current data
                             store.add(resp.data);
+
+                            console.log("resp.data");
+                            console.log(resp.data);
+
+                            //load the bulk oil canning array with valid data for later retrieval by an export request
+                            setBulkOilCanningList(resp.data);
+
+                            Ext.getCmp('ExportBulkOilCanning').setDisabled(false);
 
                             //link up to the bulk oil canning error store
                             var store = Ext.data.StoreManager.lookup('OcBulkErrorStore');
@@ -468,7 +488,6 @@ function DownloadOcBulkTemplate() {
 }
 
 var chartList = [];
-
 function setChartList(chartListData) {
 
     chartList = chartListData;
@@ -481,8 +500,8 @@ function getChartList() {
     return chartList;
 }
 
+//write oil canning results to a .csv
 function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportDetailed) {
-//function OilCanningToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
@@ -520,6 +539,7 @@ function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportD
             //2nd loop will extract each column and convert it in string comma-seprated
             for (var index in arrData[i]) {
                 row += '"' + arrData[i][index] + '",';
+                console.log(arrData[i][index]);
             }
 
             row.slice(0, row.length - 1);
@@ -528,21 +548,6 @@ function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportD
             CSV += row + '\r\n';
         }
     }
-
-    ////1st loop is to extract each row
-    //for (var i = 0; i < arrData.length; i++) {
-    //    var row = "";
-
-    //    //2nd loop will extract each column and convert it in string comma-seprated
-    //    for (var index in arrData[i]) {
-    //        row += '"' + arrData[i][index] + '",';
-    //    }
-
-    //    row.slice(0, row.length - 1);
-
-    //    //add a line break after each row
-    //    CSV += row + '\r\n';
-    //}
 
     if (oilCanningData[0].ocvar > 0) {
         oilCanningData[0].peakld = 'No Oil canning < 400 N'
@@ -560,7 +565,7 @@ function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportD
     }
 
     //Generate a file name
-    var fileName = "MyReport_";
+    var fileName = "";
     //this will remove the blank-spaces from the title and replace it with an underscore
     fileName += ReportTitle.replace(/ /g, "_");
 
@@ -586,117 +591,73 @@ function OilCanningToCSVConvertor(oilCanningData, JSONData, ReportTitle, exportD
     document.body.removeChild(link);
 }
 
-///**
-// * This class is the main view for the application. It is specified in app.js as the
-// * "mainView" property. That setting automatically applies the "viewport"
-// * plugin causing this view to become the body element (i.e., the viewport).
-// *
-// * TODO - Replace this content of this view to suite the needs of your application.
-// */
-//Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
-//    extend: 'Ext.tab.Panel',
-//    xtype: 'app-main',
+//write bulk oil canning results to a .csv
+function BulkOilCanningToCSVConvertor(JSONData, ReportTitle, exportDetailed) {
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
-//    requires: [
-//        'Ext.plugin.Viewport',
-//        'Ext.window.MessageBox',
+    console.log("JSONData");
+    console.log(JSONData);
 
-//        'DentResistanceOilCanningUpgrade.view.main.MainController',
-//        'DentResistanceOilCanningUpgrade.view.main.MainModel',
-//        'DentResistanceOilCanningUpgrade.view.main.List',
+    var CSV = '';
+    //Set Report title in first row or line
 
-//        'DentResistanceOilCanning.view.main.PageFooter',
+    currentDateTime = new Date().toLocaleString();
+    CSV += 'Bulk Oil Canning Results, Ran On: ' + currentDateTime + '\r\n';
+    CSV += 'Excel Row Id, Front View Radius (mm), Side View Radius (mm), Thickness (mm), Free Span Between Bows (mm), Major Stretch (%), Minor Stretch (%), Oil Canning Load (N), Dentload_DDQ (N), Dentload_BH210 (N), Deflection @ 90N (mm), Deflection @ 100N (mm) \r\n';
 
-//        'DentResistanceOilCanningUpgrade.view.charts.line.OcLoadDeflection',
-//        'DentResistanceOilCanningUpgrade.store.OcLoadDeflectionStore',
-//    ],
+    //if a detailed report is requested, include the deflection and load data points
+    if (exportDetailed) {
+        var row = "";
+        row = row.slice(0, -1);
 
-//    controller: 'main',
-//    viewModel: 'main',
+        //1st loop is to extract each row
+        for (var i = 0; i < arrData.length; i++) {
+            var row = "";
+            //console.log("JSONData" + i)
+            //console.log(JSONData[i])
 
-//    ui: 'navigation',
+            row += JSONData[i].excelRowId + ',' + JSONData[i].fvr + ',' + JSONData[i].svr + ',' + JSONData[i].gaugeini + ',' +
+                JSONData[i].span + ',' + JSONData[i].emaj + ',' + JSONData[i].emin + ',' + JSONData[i].peakld + ',' +
+                JSONData[i].DDQ + ',' + JSONData[i].BH210 + ',' + JSONData[i].Deflection90 + ',' + JSONData[i].Deflection100 + ',';
 
-//    tabBarHeaderPosition: 1,
-//    titleRotation: 0,
-//    tabRotation: 0,
+            //console.log("row:");
+            //console.log(row);
 
-//    header: {
-//        layout: {
-//            align: 'stretchmax'
-//        },
-//        title: {
-//            bind: {
-//                text: '{name}'
-//            },
-//            flex: 0
-//        },
-//        iconCls: 'fa-th-list'
-//    },
+            row.slice(0, row.length - 1);
 
-//    tabBar: {
-//        flex: 1,
-//        layout: {
-//            align: 'stretch',
-//            overflowHandler: 'none'
-//        }
-//    },
+            //add a line break after each row
+            CSV += row + '\r\n';
+        }
+    }
 
-//    responsiveConfig: {
-//        tall: {
-//            headerPosition: 'top'
-//        },
-//        wide: {
-//            headerPosition: 'left'
-//        }
-//    },
+    if (CSV == '') {
+        alert("Invalid data");
+        return;
+    }
 
-//    defaults: {
-//        bodyPadding: 20,
-//        tabConfig: {
-//            responsiveConfig: {
-//                wide: {
-//                    iconAlign: 'left',
-//                    textAlign: 'left'
-//                },
-//                tall: {
-//                    iconAlign: 'top',
-//                    textAlign: 'center',
-//                    width: 120
-//                }
-//            }
-//        }
-//    },
+    //Generate a file name
+    var fileName = "";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName += ReportTitle.replace(/ /g, "_");
 
-//    items: [{
-//        title: 'Home',
-//        iconCls: 'fa-home',
-//        // The following grid shares a store with the classic version's grid as well!
-//        items: [{
-//            xtype: 'mainlist'
-//        }]
-//    }, {
-//        title: 'Users',
-//        iconCls: 'fa-user',
-//        //bind: {
-//        //    html: '{loremIpsum}'
-//        //}
-//        items: [{
-//            //xtype: 'line-spline'
-//        }]
-//    }, {
-//        title: 'Load Deflection',
-//        iconCls: 'fa-users',
-//        //bind: {
-//        //    html: '{loremIpsum}'
-//        //}
-//        items: [{
-//            xtype: 'oc-load-deflection'
-//        }]
-//    }, {
-//        title: 'Settings',
-//        iconCls: 'fa-cog',
-//        bind: {
-//            html: '{loremIpsum}'
-//        }
-//    }]
-//});
+    //Initialize file format you want csv or xls
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+
+    // Now the little tricky part.
+    // you can use either>> window.open(uri);
+    // but this will not work in some browsers
+    // or you will not get the correct file extension    
+
+    //this trick will generate a temp <a /> tag
+    var link = document.createElement("a");
+    link.href = uri;
+
+    //set the visibility hidden so it will not effect on your web-layout
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+
+    //this part will append the anchor tag and remove it after automatic click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
