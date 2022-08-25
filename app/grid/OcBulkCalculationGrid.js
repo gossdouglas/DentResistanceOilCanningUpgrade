@@ -2,7 +2,7 @@
     extend: 'Ext.grid.Panel',
     xtype: 'OcBulkCalculationGrid',
     //controller is found by alias
-    controller: 'oc-bulk-calculation-controller',
+    //controller: 'oc-bulk-calculation-controller',
     id: 'oc-bulk-calculation-grid',
     forceFit: true,
     requires: [
