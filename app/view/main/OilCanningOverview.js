@@ -35,6 +35,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                             flex: 9,
                             items:
                                 [
+                                    //oil canning and dent resistance calculator
                                     {
                                         xtype: 'panel',
                                         layout: {
@@ -55,6 +56,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                                                 },
                                             ]
                                     },
+                                    //bulk input
                                     {
                                         xtype: 'panel',
                                         layout: {
@@ -77,7 +79,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                                     },
                                 ]
                         },
-                        //bulk oil canning
+                        //page footer
                         {
                             xtype: 'panel',
                             width: '100%',
@@ -86,22 +88,11 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {
                             items:
                                 [
                                     {
-                                        xtype: 'panel',
-                                        layout: {
-                                            type: 'hbox',
-                                            align: 'stretch',
-                                        },
-                                        items:
-                                            [
-                                                {
-                                                    xtype: 'panel',
-                                                    width: '95%',
-                                                    html: str5
-                                                },
-                                            ]
+                                        xtype: 'page-footer',
+                                        width: '100%',
                                     },
                                 ]
-                        },
+                        }
                     ]
             },
         ],

@@ -55,7 +55,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
             text: 'Dent Resistance/Oil Canning',
             flex: 0
         },
-        iconCls: 'fa-th-list'
     },
     tabBar: {
         flex: 1,
@@ -95,7 +94,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         {
             xtype: 'panel',
             title: 'Dent Resistance Overview',
-            iconCls: 'fa-home',
             scrollable: true,
             listeners: {
                 show: function () {
@@ -109,7 +107,6 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
         },
         {
             title: 'Oil Canning Overview',
-            iconCls: 'fa-user',
             scrollable: true,
 
             listeners: {

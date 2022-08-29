@@ -149,6 +149,7 @@ namespace DRFormula
 				// Bad things happened
 				result2 = false;
 				mdblNewtons = 0;
+
 				//UPGRADE_WARNING: (2081) Err.Number has a new behavior. More Information: https://docs.mobilize.net/vbuc/ewis#2081
 				throw new System.Exception(Information.Err().Number.ToString() + ", " + excep.Source + ", " + "Formula Calculate Error: " + Environment.NewLine + excep.Message);
 			}

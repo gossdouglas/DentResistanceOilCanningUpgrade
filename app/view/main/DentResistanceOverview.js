@@ -21,14 +21,6 @@ var str3 = 'In North America, dent resistance has been most commonly evaluated b
 
 var str4 = '<u>Procedures for evaluating dent resistance of automotive body panels</u>, Auto/Steel Partnership, Southfield, MI, January 2001. '
 
-var str5 = '<p><center>&copy;Arcelor Mittal<br>' +
-    'Problems or Concerns, please contact the <a href="#"> <b>Support Team</b></a><br>Last Modified: 3 December 2021</center>'
-
-var str6 = '<p><center>For questions or comments, please contact<br>' +
-    'Sriram Sadagopan, ArcelorMittal R & D<br>' +
-    'Phone: (219) 399-5593, Fax: (219) 399-6562<br>' +
-    'Email: <a href="mailto:mailto:Sriram.Sadagopan@arcelormittal.com"><b>Sriram.Sadagopan@arcelormittal.com</b></a></center>'
-
 Ext.define('DentResistanceOilCanningUpgrade.view.main.DentResistanceOverview', {
     extend: 'Ext.form.Panel',
     xtype: 'dent-resistance-overview',

@@ -108,6 +108,7 @@
     <Content Include="app\store\GradeStoreModel2.js" />
     <Content Include="app\store\OcBulkCalculationStore.js" />
     <Content Include="app\store\OcBulkErrorStore.js" />
+    <Content Include="app\view\charts\line\OcLoadDeflection.js" />
     <Content Include="app\view\main\DentResistanceOverview.js" />
     <Content Include="app\view\main\DrM1Form.js" />
     <Content Include="app\view\main\DrM1FormCalcResults.js" />
