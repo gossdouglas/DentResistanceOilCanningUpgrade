@@ -75,13 +75,20 @@ namespace DentResistanceOilCanningUpgrade.Controllers
             }
         }
 
+        [HttpPost]
+        //public String RetoolTest(string str)
+        public String RetoolTest()
+        {
+            return "yo";
+        }
+
         ////not used currently.  the values for the combo boxes are hard coded.
         //[HttpGet]
         //public ReturnObject<List<dr_Grades>> GetGrades(dr_Grades drGrades)
         //{
         //    //a new object that will eventually be sent to the view
         //    List<dr_Grades> gradesList = new List<dr_Grades>();
-            
+
         //    string mainconn = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         //    SqlConnection sqlconn = new SqlConnection(mainconn);
 
