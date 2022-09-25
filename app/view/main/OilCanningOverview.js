@@ -10,7 +10,7 @@ var str1 = '<a href="#" onclick="showOcCalculator()"><b>Oil Canning and Dent Res
     '<p>Note: The oil canning resistance and initial stiffness of panels can depend significantly on the type of indenter, the indenter size and the support conditions for the panel. </p>'
 
 var str2 = '<a href="#" onclick="showOcBulkInput()"><b>Bulk Input</b></a><br>' +
-    'This bulk input will allow Ford to run many inquires at one time reducing the time it takes them to analyze various thicknesses. ' +
+    'This bulk input will allow users to run many inquires at one time reducing the time it takes them to analyze various scenarios. ' +
     '<p><center><img src="images/oilcanningroof.jpg" border="1"><br>'
 
 Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningOverview', {

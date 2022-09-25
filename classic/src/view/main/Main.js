@@ -52,7 +52,7 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.Main', {
             align: 'stretchmax'
         },
         title: {
-            text: 'Dent Resistance/Oil Canning',
+            text: 'Arcelor Mittal',
             flex: 0
         },
     },
@@ -128,8 +128,8 @@ function showDRModel1() {
     var win = Ext.create('Ext.window.Window', {
         layout: 'fit',
         xtype: 'form',
-        width: '100%',
-        height: '100%',
+        width: '95%',
+        height: '95%',
         id: 'model1FormWindow',
         items: {
             xtype: 'dr-model1-form'
@@ -145,8 +145,8 @@ function showDRModel2() {
     var win = Ext.create('Ext.window.Window', {
         layout: 'fit',
         xtype: 'form',
-        width: '100%',
-        height: '100%',
+        width: '95%',
+        height: '95%',
         id: 'model1FormWindow',
         items: {
             xtype: 'dr-model2-form'
@@ -163,8 +163,8 @@ function showOcCalculator() {
     var win = Ext.create('Ext.window.Window', {
         layout: 'fit',
         xtype: 'form',
-        width: '100%',
-        height: '100%',
+        width: '95%',
+        height: '95%',
         id: 'oilCanningFormWindow',
         items: {
             xtype: 'oil-canning-form'
@@ -183,8 +183,8 @@ function showOcBulkInput() {
     var win = Ext.create('Ext.window.Window', {
         layout: 'fit',
         xtype: 'form',
-        width: '100%',
-        height: '100%',
+        width: '95%',
+        height: '95%',
         id: 'oilCanningBulkInputFormWindow',
         items: {
             xtype: 'oil-canning-bulk-input-form'

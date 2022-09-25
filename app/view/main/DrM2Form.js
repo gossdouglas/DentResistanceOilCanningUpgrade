@@ -118,10 +118,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                         labelAlign: 'top',
                                         width: '11%',
                                         allowBlank: false,
-                                        regex: /^(\.2[5-9]+|\.[3-9]+|1|1\.\d+|2)$/i,
+                                        regex: /^(0\.2[5-9]+|0\.[3-9]+|1|1\.\d+|2)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Major strain must be a value between .25 and 2',
-                                        value: '.25'
+                                        invalidText: 'Major strain must be a value between 0.25 and 2. Leading zeroes are necessary.',
+                                        value: 0.25
                                     },
                                     {
                                         xtype: 'textfield',
@@ -131,10 +131,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                         labelAlign: 'top',
                                         width: '11%',
                                         allowBlank: false,
-                                        regex: /^(\.2[5-9]+|\.[3-9]+|1|1\.\d+|2)$/i,
+                                        regex: /^(0\.2[5-9]+|0\.[3-9]+|1|1\.\d+|2)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Minor strain must be a value between .25 and 2',
-                                        value: '.25'
+                                        invalidText: 'Minor strain must be a value between 0.25 and 2. Leading zeroes are necessary.',
+                                        value: 0.25
                                     },
                                     {
                                         xtype: 'textfield',
@@ -144,10 +144,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                         labelAlign: 'top',
                                         width: '11%',
                                         allowBlank: false,
-                                        regex: /^(\.6[5-9]+|\.7\d*|\.8)$/i,
+                                        regex: /^(0\.6[5-9]+|0\.7\d*|0\.8)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Thickness must be a value between .65 and .8',
-                                        value: '.65'
+                                        invalidText: 'Thickness must be a value between 0.65 and 0.8. Leading zeroes are necessary.',
+                                        value: 0.65
                                     },
                                     {
                                         xtype: 'textfield',
@@ -201,17 +201,17 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
                                     {
                                         xtype: 'panel',
                                         width: '11%',
-                                        html: '<center>.25% to 2%</center>',
+                                        html: '<center>0.25% to 2%</center>',
                                     },
                                     {
                                         xtype: 'panel',
                                         width: '11%',
-                                        html: '<center>.25% to 2%</center>',
+                                        html: '<center>0.25% to 2%</center>',
                                     },
                                     {
                                         xtype: 'panel',
                                         width: '11%',
-                                        html: '<center>.65 mm to .8 mm</center>',
+                                        html: '<center>0.65 mm to 0.8 mm</center>',
                                     },
                                     {
                                         xtype: 'panel',
@@ -324,6 +324,8 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.DrM2Form', {
             {
                 xtype: 'panel',
                 id: 'DrM2FormTestResultsPanel',
+                title: 'Correlation with Test Results',
+                titleAlign: 'center',
                 width: '100%',
                 bodyPadding: '5',
                 flex: 5,

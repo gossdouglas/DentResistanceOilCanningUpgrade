@@ -83,10 +83,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         width: '11%',
                                         allowBlank: false,
                                         //.55-.85
-                                        regex: /^(\.5[5-9]+|\.6\d*|\.7\d*|\.8[0-5]*)$/i,
+                                        regex: /^(0\.5[5-9]+|0\.6\d*|0\.7\d*|0\.8[0-5]*)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Thickness must be a value between .55 and .85',
-                                        value: '.55'
+                                        invalidText: 'Thickness must be a value between 0.55 and 0.85. Leading zeroes are necessary.',
+                                        value: 0.55
                                     },
                                     //span
                                     {
@@ -113,10 +113,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         width: '11%',
                                         allowBlank: false,
                                         //0-2
-                                        regex: /^(0|\.0[1-9]+[1-9]*|\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
+                                        regex: /^(0|0\.0[1-9]+[1-9]*|0\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Major stretch must be a value between 0 and 2',
-                                        value: 0
+                                        invalidText: 'Major stretch must be a value between 0 and 2. Leading zeroes are necessary.',
+                                        value: 0.0
                                     },
                                     {
                                         xtype: 'textfield',
@@ -127,10 +127,10 @@ Ext.define('DentResistanceOilCanningUpgrade.view.main.OilCanningForm', {
                                         width: '11%',
                                         allowBlank: false,
                                         //0-2
-                                        regex: /^(0|\.0[1-9]+[1-9]*|\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
+                                        regex: /^(0|0\.0[1-9]+[1-9]*|0\.[1-9]+[1-9]*|1.[0-9]+[0-9]*|1|2)$/i,
                                         msgTarget: 'side', // location of the error message
-                                        invalidText: 'Minor stretch must be a value between 0 and 2',
-                                        value: 0
+                                        invalidText: 'Minor stretch must be a value between 0 and 2. Leading zeroes are necessary.',
+                                        value: 0.0
                                     },
                                     {
                                         xtype: 'textfield',
